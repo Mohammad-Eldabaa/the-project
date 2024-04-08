@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="home" />
+        <item
+            android:id="@+id/person"
+            android:icon="@drawable/person"
+            android:title="personal Page" />
+        <item
+            android:id="@+id/setting"
+            android:icon="@drawable/baseline_settings_24"
+            android:title="setting" />
+    </group>
+
+
+    <item android:title="">
+
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/share"
+                    android:icon="@drawable/share"
+                    android:title="share" />
+                <item
+                    android:id="@+id/callUs"
+                    android:icon="@drawable/phone"
+                    android:title="call us" />
+                <item
+                    android:id="@+id/about"
+                    android:icon="@drawable/baseline_question_mark_24"
+                    android:title="about" />
+
+            </group>
+
+        </menu>
+    </item>
+
+
+</menu>
