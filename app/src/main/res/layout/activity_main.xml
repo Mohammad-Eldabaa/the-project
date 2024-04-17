@@ -59,6 +59,7 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -76,8 +77,8 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/supermercado_one"
-                    android:text="Call"
                     android:gravity="center"
+                    android:text="Call"
                     android:textColor="@color/blue1"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -107,6 +108,7 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -152,6 +154,7 @@
             <!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -200,6 +203,7 @@
             <!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/con4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -218,6 +222,7 @@
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/supermercado_one"
                     android:gravity="center"
+                    android:onClick="Onclic_med"
                     android:text="Medicine"
                     android:textColor="@color/blue1"
                     android:textSize="24sp"
@@ -234,6 +239,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
+                    android:onClick="Onclic_med"
                     android:padding="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -252,7 +258,7 @@
             app:layout_constraintGuide_percent="0.85" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/interface_textView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fontFamily="sans-serif-smallcaps"

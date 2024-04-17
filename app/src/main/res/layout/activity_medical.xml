@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Call">
+    tools:context=".medical_acitivty">
+
+
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView_area"
+        android:id="@+id/searchView_medical"
         android:layout_width="0dp"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginStart="16dp"
@@ -19,16 +21,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="ادخل المجافظة" />
+        app:queryHint="البحث عن دواء" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RView_call"
+    <ListView
+        android:id="@+id/medical_listView"
+        style="@style/Widget.AppCompat.ListView.Menu"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:contextClickable="false"
+        android:divider="@color/darkblue"
+        android:dividerHeight="2dp"
+        android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView_area" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView_medical" />
 </androidx.constraintlayout.widget.ConstraintLayout>

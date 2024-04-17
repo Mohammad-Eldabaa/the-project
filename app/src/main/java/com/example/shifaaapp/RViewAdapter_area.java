@@ -3,6 +3,8 @@ package com.example.shifaaapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ public class RViewAdapter_area extends RecyclerView.Adapter<RViewAdapter_area.Fi
 
     ArrayList<Danger> dangers ;
     OnItemClickListener listener;
+    boolean an = true;
 
     public RViewAdapter_area(ArrayList<Danger> dangers, OnItemClickListener listener) {
         this.dangers = dangers;
@@ -35,7 +38,22 @@ public class RViewAdapter_area extends RecyclerView.Adapter<RViewAdapter_area.Fi
 
         holder.tv_name.setText(d.getName());
 
+        if (an) {
+            Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.anim_one);
+            holder.itemView.startAnimation(animation);
+        }
 
+//        if (position== 17)
+//            an = false;
+
+
+    }
+
+
+    @Override
+    public void onViewRecycled(@NonNull First_aid_VHolder holder) {
+        holder.itemView.clearAnimation();
+        super.onViewRecycled(holder);
     }
 
     @Override

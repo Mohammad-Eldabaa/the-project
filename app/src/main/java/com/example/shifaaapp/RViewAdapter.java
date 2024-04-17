@@ -3,6 +3,8 @@ package com.example.shifaaapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,11 +17,14 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.First_aid_VH
 
     ArrayList<Danger> dangers ;
     OnItemClickListener listener;
+    public static boolean an = true;
 
     public RViewAdapter(ArrayList<Danger> dangers,OnItemClickListener listener) {
         this.dangers = dangers;
         this.listener = listener;
     }
+
+
 
     @NonNull
     @Override
@@ -35,6 +40,14 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.First_aid_VH
         Danger d = dangers.get(position);
         holder.iv_image.setImageResource(d.getImg());
         holder.tv_name.setText(d.getName());
+
+        if (an) {
+            Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.anim_two);
+            holder.itemView.startAnimation(animation);
+        }
+
+//        if (position== 17)
+//            an = false;
 
 
     }

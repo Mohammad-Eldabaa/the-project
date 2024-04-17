@@ -25,7 +25,7 @@ public class frist_aid_show_activity extends AppCompatActivity {
         setContentView(R.layout.activity_frist_aid_show);
 
         Intent intent = getIntent();
-        id = intent.getIntExtra("dangerId",1);
+        id = intent.getIntExtra("dangerId",1) +1;
 
 
 

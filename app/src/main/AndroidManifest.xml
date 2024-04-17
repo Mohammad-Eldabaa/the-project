@@ -15,6 +15,12 @@
         android:theme="@style/Theme.ShifaaApp"
         tools:targetApi="31">
         <activity
+            android:name=".medical_show"
+            android:exported="false" />
+        <activity
+            android:name=".medical_acitivty"
+            android:exported="false" />
+        <activity
             android:name=".Call_numbers"
             android:exported="false" />
         <activity
