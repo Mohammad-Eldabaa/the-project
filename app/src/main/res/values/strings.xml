@@ -2,6 +2,7 @@
     <string name="app_name">Shifaa app</string>
     <string name="nav_draw_open">Open navigation drawable</string>
     <string name="nav_draw_close">Close navigation drawable</string>
+    <string name="partion1">-الأمراض الجلدية </string>
 
     <string-array name="cit">
         <item>القاهرة</item>

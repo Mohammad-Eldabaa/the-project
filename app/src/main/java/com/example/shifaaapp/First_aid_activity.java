@@ -119,7 +119,7 @@ public class First_aid_activity extends AppCompatActivity {
 
         if (dan.isEmpty())
         {
-            Toast.makeText(this,"غير موجود",Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this,"غير موجود",Toast.LENGTH_SHORT).show();
             RView = findViewById(R.id.RView_first_aid);
             RView.setAdapter(null);
         }

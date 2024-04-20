@@ -11,17 +11,17 @@
         android:id="@+id/searchView_medical"
         android:layout_width="0dp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="12dp"
         android:background="@drawable/back2"
         android:iconifiedByDefault="false"
-        app:searchHintIcon="@drawable/search_icon"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="البحث عن دواء" />
+        app:queryHint="البحث عن دواء"
+        app:searchHintIcon="@drawable/search_icon" />
 
     <ListView
         android:id="@+id/medical_listView"
@@ -30,8 +30,8 @@
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:contextClickable="false"
-        android:divider="@color/darkblue"
-        android:dividerHeight="2dp"
+        android:divider="@android:color/system_accent1_200"
+        android:dividerHeight="1dp"
         android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

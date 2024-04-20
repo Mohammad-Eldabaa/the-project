@@ -82,6 +82,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
     }
 
+    public void Onclic_doc(View view)
+    {
+        Intent intent = new Intent(this, doctors_partions.class);
+        startActivity(intent);
+    }
+
 
     public void animate()
     {
