@@ -45,9 +45,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
+
+
         animate();
 
     }
+
+
+    //------------------------------------------------------------------------------------------------
 
     @Override
     public void onBackPressed() {
@@ -60,10 +65,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        Intent intent = new Intent(this,docto_show_activity.class);
+        startActivity(intent);
+
         return true;
     }
 
 
+    //------------------------------------------------------------------------------------------------
     public void Onclic_aid(View view)
     {
 
