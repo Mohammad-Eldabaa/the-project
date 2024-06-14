@@ -7,129 +7,198 @@
     android:layoutDirection="ltr"
     tools:context=".docto_show_activity">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=" امراض المخ و الاعصاب "
-        android:textColor="@color/blue1"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.31" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="-16dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/doctor_back" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="@dimen/_120sdp"
-        android:layout_height="@dimen/_120sdp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.525"
-        app:srcCompat="@drawable/doctor_vector" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="محمد على مسعود"
-        android:textColor="#FFFFFF"
-        android:textSize="38sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="العنوان :-"
-        android:textColor="@color/blue2"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="طنطا : عثمان محمد امام مصر والسودان"
-        android:textColor="@color/blue1"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:text="التخصص :-"
-        android:textColor="@color/blue2"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/button_back"
-        android:padding="15dp"
-        android:text="احجز الان"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/baseline_location_on_24" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:srcCompat="@drawable/baseline_apartment_24" />
+            <TextView
+                android:id="@+id/TV_doctor_part"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text=" امراض المخ و الاعصاب "
+                android:textColor="@color/blue1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="211dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="-8dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/doctor_back" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_110sdp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2"
+                app:srcCompat="@drawable/doctor_vector" />
+
+            <TextView
+                android:id="@+id/TV_doctor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="42dp"
+                android:text="محمد على مسعود"
+                android:textColor="#FFFFFF"
+                android:textSize="38sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/imageView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="العنوان :-"
+                android:textColor="@color/blue2"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TV_doctor_about" />
+
+
+            <TextView
+                android:id="@+id/textViewp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="سعر الكشف "
+                android:textColor="@color/blue2"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TV_doctor_title" />
+
+            <TextView
+                android:id="@+id/TV_doctor_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="طنطا : عثمان محمد امام مصر والسودان"
+                android:textColor="@color/blue1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/TV_doctor_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="............"
+                android:textColor="@color/blue1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/TV_doctor_part"
+                app:layout_constraintTop_toBottomOf="@+id/TV_doctor_part" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="16dp"
+                android:text="التخصص :-"
+                android:textColor="@color/blue2"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/button_back"
+                android:padding="15dp"
+                android:text="احجز الان"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TV_doctor_price" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:srcCompat="@drawable/baseline_location_on_24" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:srcCompat="@drawable/baseline_apartment_24" />
+
+            <TextView
+                android:id="@+id/TV_doctor_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="150"
+                android:textColor="@color/blue1"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:text="جنيه "
+                android:textColor="@color/blue1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/TV_doctor_price"
+                app:layout_constraintTop_toBottomOf="@+id/textViewp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

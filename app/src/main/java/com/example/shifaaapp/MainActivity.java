@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        Intent intent = new Intent(this,docto_show_activity.class);
+        Intent intent = new Intent(this,MainActivity2.class);
         startActivity(intent);
 
         return true;

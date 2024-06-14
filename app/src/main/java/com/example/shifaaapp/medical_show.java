@@ -53,8 +53,8 @@ public class medical_show extends AppCompatActivity {
 
             tv_Tame.setText(med1.getTname());
             tv_Sname.setText(med1.getSname());
-            tv_use.setText(med1.getUse());
-            tv_Xuse.setText(med1.getXuse());
+            tv_use.setText(med1.getUse().replaceAll("\\n", ""));
+            tv_Xuse.setText(med1.getXuse().replaceAll("\\n", ""));
         }
 
         else
