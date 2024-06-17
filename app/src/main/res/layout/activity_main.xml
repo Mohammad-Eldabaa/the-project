@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
 
+
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
@@ -23,9 +24,10 @@
         app:mbn_defaultIconColor="@color/blue2"
         app:mbn_rippleColor="#2f424242"
         app:mbn_selectedIconColor="@color/white"
+        android:background="#EFF6F8"
         app:mbn_shadowColor="#1f212121" />
 
-    <androidx.fragment.app.FragmentContainerView
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/fragmentContainerView"
         android:name="com.example.shifaaapp.homeFragment"
         android:layout_width="0dp"

@@ -2,15 +2,13 @@ package com.example.shifaaapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
-import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -18,61 +16,44 @@ public class MainActivity2 extends AppCompatActivity {
     private TextView txtSpeechInput;
     private Button btnSpeak;
 
-
+    private WebView webView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
 
-        txtSpeechInput = findViewById(R.id.txtSpeechInput);
-        btnSpeak = findViewById(R.id.btnSpeak);
+        webView = findViewById(R.id.web);
+        // Enable JavaScript
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
-        btnSpeak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                promptSpeechInput();
-            }
-        });
+        // Ensure links open within the WebView
+        webView.setWebViewClient(new WebViewClient());
 
-
+        // Load a URL
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+        webView.loadUrl(url);
 
     }
 
 
  //________________________________________________________________________________________________
 
-
-    private void promptSpeechInput() {
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something");
-        try {
-            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
-        } catch (Exception e) {
-            e.printStackTrace();
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
         }
     }
-
-
 //________________________________________________________________________________________________
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQ_CODE_SPEECH_INPUT: {
-                if (resultCode == RESULT_OK && null != data) {
-                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txtSpeechInput.setText(result.get(0));
-                }
-                break;
-            }
-        }
-    }
+
 
 
 

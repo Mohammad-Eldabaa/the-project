@@ -1,10 +1,9 @@
 package com.example.shifaaapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
@@ -17,6 +16,8 @@ public class MainActivity extends AppCompatActivity  {
     int home = 1;
 
 
+    private ViewPager2 viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,45 +28,46 @@ public class MainActivity extends AppCompatActivity  {
         bottomNavigation.show(2, true);
             //   bottomNavigation.setIconsSize(36, 36);
 
-        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.search_icon));
+
+
+        viewPager = findViewById(R.id.fragmentContainerView);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1,false);
+
+
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.listc));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.the_home));
         bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.baseline_settings_24));
-
 //
-        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
-            @Override
-            public Unit invoke(MeowBottomNavigation.Model model) {
-                int itemId = model.getId();
-
-                switch (itemId) {
-                    case 1:
-                        Toast.makeText(MainActivity.this, "Item 1 clicked", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                        startActivity(intent);
-                        break;
-                    case 2:
-                        Toast.makeText(MainActivity.this, "Item 2 clicked", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
-                        Toast.makeText(MainActivity.this, "Item 3 clicked", Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                        // Handle default case or do nothing
-                        break;
-                }
-
-                return null;
-            }
-        });
-
         bottomNavigation.setOnShowListener(new Function1<MeowBottomNavigation.Model, Unit>() {
             @Override
             public Unit invoke(MeowBottomNavigation.Model model) {
-
+                int itemId = model.getId();
+                switch (itemId) {
+                    case 1:
+                        viewPager.setCurrentItem(0, true);
+                        break;
+                    case 2:
+                        viewPager.setCurrentItem(1, true);
+                        break;
+                    case 3:
+                        viewPager.setCurrentItem(2, true);
+                    // Add more cases for additional items
+                    default:
+                        break;
+                }
                 return null;
             }
         });
 
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                bottomNavigation.show(position + 1, true);
+            }
+        });
 
 // bottomNavigation.setCount(2,"8");
 // bottomNavigation.show(home,true);
