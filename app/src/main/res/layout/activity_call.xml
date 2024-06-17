@@ -4,22 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+
     tools:context=".Call">
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView_area"
         android:layout_width="0dp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/back2"
         android:iconifiedByDefault="false"
-        app:searchHintIcon="@drawable/search_icon"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Button_area"
         app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="ادخل المجافظة" />
+        app:queryHint="ادخل المجافظة"
+        app:searchHintIcon="@drawable/search_icon" />
+
+    <Button
+        android:id="@+id/Button_area"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/micro"
+        app:layout_constraintEnd_toStartOf="@+id/searchView_area"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RView_call"

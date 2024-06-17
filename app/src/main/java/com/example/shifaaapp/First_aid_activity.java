@@ -2,6 +2,9 @@ package com.example.shifaaapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,12 +13,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class First_aid_activity extends AppCompatActivity {
 
     RecyclerView RView ;
     SearchView searchView;
     ArrayList<Danger> dangers;
+
+    private static final int REQ_CODE_SPEECH_INPUT = 100;
+    private SearchView txtSpeechInput;
+    private Button btnSpeak;
 
 
     @Override
@@ -24,6 +32,7 @@ public class First_aid_activity extends AppCompatActivity {
         setContentView(R.layout.activity_first_aid);
         create();
         search();
+        speek();
     }
 
 
@@ -140,6 +149,52 @@ public class First_aid_activity extends AppCompatActivity {
 
         }
 
+    }
+
+    //-------------------------------------------------------------------------------------------------
+    public void speek()
+    {
+        txtSpeechInput = findViewById(R.id.searchView);
+        btnSpeak = findViewById(R.id.Button_aid);
+
+        btnSpeak.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                promptSpeechInput();
+            }
+        });
+    }
+
+    //-------------------------------------------------------------------------------------------------
+
+    private void promptSpeechInput() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say something");
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //-------------------------------------------------------------------------------------------------
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        switch (requestCode) {
+            case REQ_CODE_SPEECH_INPUT: {
+                if (resultCode == RESULT_OK && null != data) {
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    searchView.setQuery(result.get(0), false);
+                }
+                break;
+            }
+        }
     }
 
 }

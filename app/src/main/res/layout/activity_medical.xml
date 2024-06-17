@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".medical_acitivty">
 
 
@@ -11,17 +12,28 @@
         android:id="@+id/searchView_medical"
         android:layout_width="0dp"
         android:layout_height="@dimen/_40sdp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         android:background="@drawable/back2"
         android:iconifiedByDefault="false"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:queryHint="البحث عن دواء"
         app:searchHintIcon="@drawable/search_icon" />
+
+    <Button
+        android:id="@+id/Button_medical"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/micro"
+        app:layout_constraintEnd_toStartOf="@+id/searchView_medical"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/medical_listView"

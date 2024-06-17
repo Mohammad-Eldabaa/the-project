@@ -2,28 +2,20 @@ package com.example.shifaaapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.google.android.material.navigation.NavigationView;
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+
+public class MainActivity extends AppCompatActivity  {
 
 
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbar;
-    ConstraintLayout con1,con2,con3,con4;
-    TextView textView;
+    int home = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,106 +23,63 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
 
+        MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomNavigation);
+        bottomNavigation.show(2, true);
+            //   bottomNavigation.setIconsSize(36, 36);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        toolbar = findViewById(R.id.toolbar);
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.search_icon));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.the_home));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.baseline_settings_24));
 
-        setSupportActionBar(toolbar);
+//
+        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                int itemId = model.getId();
 
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_draw_open, R.string.nav_draw_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+                switch (itemId) {
+                    case 1:
+                        Toast.makeText(MainActivity.this, "Item 1 clicked", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                        startActivity(intent);
+                        break;
+                    case 2:
+                        Toast.makeText(MainActivity.this, "Item 2 clicked", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        Toast.makeText(MainActivity.this, "Item 3 clicked", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        // Handle default case or do nothing
+                        break;
+                }
+
+                return null;
+            }
+        });
+
+        bottomNavigation.setOnShowListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+
+                return null;
+            }
+        });
 
 
+// bottomNavigation.setCount(2,"8");
+// bottomNavigation.show(home,true);
 
-
-        animate();
+//        animate();
 
     }
 
 
     //------------------------------------------------------------------------------------------------
 
-    @Override
-    public void onBackPressed() {
 
-        if (drawerLayout.isDrawerOpen(GravityCompat.START))
-            drawerLayout.closeDrawer(GravityCompat.START);
-        else
-            super.onBackPressed();
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        Intent intent = new Intent(this,MainActivity2.class);
-        startActivity(intent);
-
-        return true;
-    }
 
 
     //------------------------------------------------------------------------------------------------
-    public void Onclic_aid(View view)
-    {
 
-        Intent intent = new Intent(this, First_aid_activity.class);
-        startActivity(intent);
-    }
-
-    public void Onclic_call(View view)
-    {
-        Intent intent = new Intent(this, Call.class);
-        startActivity(intent);
-    }
-    public void Onclic_med(View view)
-    {
-        Intent intent = new Intent(this, medical_acitivty.class);
-        startActivity(intent);
-    }
-
-    public void Onclic_doc(View view)
-    {
-        Intent intent = new Intent(this, doctors_partions.class);
-        startActivity(intent);
-    }
-
-
-    public void animate()
-    {
-
-        con1 = findViewById(R.id.con1);
-        con2 = findViewById(R.id.con2);
-        con3 = findViewById(R.id.con3);
-        con4 = findViewById(R.id.con4);
-        textView = findViewById(R.id.interface_textView);
-
-        con2.setScaleX(0);
-        con2.setScaleY(0);
-        con2.setAlpha(0);
-        con2.animate().scaleX(1).scaleY(1).rotation(360).alpha(1).setDuration(1000).start();
-
-        con3.setScaleX(0);
-        con3.setScaleY(0);
-        con3.setAlpha(0);
-        con3.animate().scaleX(1).scaleY(1).rotation(360).alpha(1).setDuration(1000).start();
-
-        con1.setScaleX(0);
-        con1.setScaleY(0);
-        con1.setAlpha(0);
-        con1.animate().scaleX(1).scaleY(1).rotation(360).alpha(1).setDuration(1000).start();
-
-        con4.setScaleX(0);
-        con4.setScaleY(0);
-        con4.setAlpha(0);
-        con4.animate().scaleX(1).scaleY(1).rotation(360).alpha(1).setDuration(1000).start();
-
-        textView.setAlpha(0);
-        textView.setScaleX(0);
-        textView.setScaleY(0);
-        textView.animate().scaleX(1).scaleY(1).alpha(1).setDuration(1500).start();
-    }
 }

@@ -6,6 +6,10 @@ android {
     namespace 'com.example.shifaaapp'
     compileSdk 33
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.example.shifaaapp"
         minSdk 24
@@ -40,4 +44,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    implementation 'com.etebarian:meow-bottom-navigation:1.2.0'
+
+
 }
