@@ -15,7 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:text="الأدوية المطلوبه: "
+        android:text="قائمة المشتريات: "
         android:textColor="@color/blue2"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -24,6 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
+        android:id="@+id/lisView_bought"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -31,13 +32,13 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:background="#E2EFF3"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/parch_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/parch_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

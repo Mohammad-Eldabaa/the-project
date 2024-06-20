@@ -67,7 +67,6 @@ public class Call extends AppCompatActivity {
         RViewAdapter_area adapter= new RViewAdapter_area(dangers, new OnItemClickListener() {
             @Override
             public void onItemClick(int dangerId) {
-                Toast.makeText(Call.this, String.valueOf(dangerId), Toast.LENGTH_SHORT).show();
 
 
                 Intent intent = new Intent(getBaseContext(), Call_numbers.class);
@@ -127,7 +126,6 @@ public class Call extends AppCompatActivity {
             RViewAdapter adapter= new RViewAdapter(areas, new OnItemClickListener() {
                 @Override
                 public void onItemClick(int dangerId) {
-                    Toast.makeText(Call.this, String.valueOf(areas.get(dangerId-1).getId()), Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getBaseContext(), Call_numbers.class);
                     intent.putExtra("num",areas.get(dangerId-1).getId());
                     startActivity(intent);

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 public class homeFragment extends Fragment {
 
     private ConstraintLayout con1, con2, con3, con4;
-    private TextView textView;
+    private ImageView imageView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -26,7 +26,7 @@ public class homeFragment extends Fragment {
         con2 = view.findViewById(R.id.con2);
         con3 = view.findViewById(R.id.con3);
         con4 = view.findViewById(R.id.con4);
-        textView = view.findViewById(R.id.interface_textView);
+        imageView = view.findViewById(R.id.image_home);
 
         // Set click listeners
         con1.setOnClickListener(new View.OnClickListener() {
@@ -101,9 +101,9 @@ public class homeFragment extends Fragment {
         con4.setAlpha(0);
         con4.animate().scaleX(1).scaleY(1).rotation(360).alpha(1).setDuration(1000).start();
 
-        textView.setAlpha(0);
-        textView.setScaleX(0);
-        textView.setScaleY(0);
-        textView.animate().scaleX(1).scaleY(1).alpha(1).setDuration(1500).start();
+        imageView.setAlpha(0);
+        imageView.setScaleX(0);
+        imageView.setScaleY(0);
+        imageView.animate().scaleX(1).scaleY(1).alpha(1).setDuration(1500).start();
     }
 }

@@ -227,22 +227,19 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.85" />
 
-    <TextView
-        android:id="@+id/interface_textView"
+    <ImageView
+        android:id="@+id/image_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:gravity="center|fill"
-        android:text="\nYour health"
-        android:textAlignment="center"
-        android:textColor="@color/darkblue"
-        android:textSize="60sp"
-        android:textStyle="bold"
+        android:padding="30dp"
+        app:srcCompat="@drawable/dblogo"
+        tools:layout_editor_absoluteX="498dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"        />
+
+
 
 
 

@@ -1,5 +1,8 @@
 package com.example.shifaaapp;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +17,7 @@ import java.util.ArrayList;
 public class Call_numbers extends AppCompatActivity {
 
     RecyclerView RView_numbers ;
+    ArrayList<Numbers> show;
 //    ArrayList<Numbers> numbers;
 
     @Override
@@ -43,13 +47,12 @@ public class Call_numbers extends AppCompatActivity {
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(getApplicationContext());
         databaseAccess.open();
 
-        ArrayList<Numbers> show = new ArrayList<Numbers>();
+        show = new ArrayList<Numbers>();
         ArrayList<Numbers> persons = new ArrayList<Numbers>();
 
 
         Intent intent = getIntent();
         int id = intent.getIntExtra("num",1);
-        Log.i("ddddddddddddddddd", String.valueOf(id));
         persons = databaseAccess.get_names();
 
 
@@ -66,6 +69,7 @@ public class Call_numbers extends AppCompatActivity {
         RViewAdapter_number adapter= new RViewAdapter_number(show, new OnItemClickListener() {
             @Override
             public void onItemClick(int dangerId) {
+                copyToClipboard(String.valueOf(show.get(dangerId-1).getNumber()));
                 Toast.makeText(Call_numbers.this, " تم نسخ الرقم ", Toast.LENGTH_SHORT).show();
 
 
@@ -77,5 +81,18 @@ public class Call_numbers extends AppCompatActivity {
         RView_numbers.setHasFixedSize(true);
         RView_numbers.setLayoutManager(LM);
         RView_numbers.setAdapter(adapter);
+    }
+
+    private void copyToClipboard(String text) {
+        // Get the Clipboard Manager
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+
+        // Create a ClipData object with the text
+        ClipData clip = ClipData.newPlainText("label", text);
+
+        // Set the ClipData to the Clipboard
+        clipboard.setPrimaryClip(clip);
+
+        // Notify the user
     }
 }

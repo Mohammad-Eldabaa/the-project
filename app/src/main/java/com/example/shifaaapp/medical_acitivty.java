@@ -44,7 +44,7 @@ public class medical_acitivty extends AppCompatActivity {
         a = new ArrayList<>();
 
 
-        Log.i("333", "ssssssssss");
+
         for (int i=0; i<meds.size();i++)
         {
             String m = meds.get(i).getTname();
@@ -56,7 +56,6 @@ public class medical_acitivty extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,a );
         listView.setAdapter(adapter);
-        Log.i("777", "ssssssssss");
         database_m_Access.close();
 
 
@@ -67,7 +66,6 @@ public class medical_acitivty extends AppCompatActivity {
 
 
                 String selectedItem = (String) parent.getItemAtPosition(position);
-                Toast.makeText(medical_acitivty.this, "You clicked: " + selectedItem, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getBaseContext(), medical_show.class);
                 intent.putExtra("Med_name",selectedItem);
                 startActivity(intent);

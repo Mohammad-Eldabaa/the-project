@@ -80,7 +80,6 @@ public class First_aid_activity extends AppCompatActivity {
         RViewAdapter adapter= new RViewAdapter(dangers, new OnItemClickListener() {
             @Override
             public void onItemClick(int dangerId) {
-                Toast.makeText(First_aid_activity.this, String.valueOf(dangers.get(dangerId-1).getId()), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getBaseContext(), frist_aid_show_activity.class);
                 intent.putExtra("dangerId",dangers.get(dangerId-1).getId());
                 startActivity(intent);
