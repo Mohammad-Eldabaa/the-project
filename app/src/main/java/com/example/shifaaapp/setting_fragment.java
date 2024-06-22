@@ -1,8 +1,5 @@
 package com.example.shifaaapp;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,22 +15,36 @@ public class setting_fragment extends Fragment {
 
 
 
-    Button button_share,button_call,button_about;
+    Button button_share,button_call,button_about,web_button;
+    NetworkChangeReceiver networkChangeReceiver;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View view = inflater.inflate(R.layout.fragment_setting_fragment, container, false);
+        networkChangeReceiver = new NetworkChangeReceiver(getContext());
+
 
         button_share = view.findViewById(R.id.share_button);
         button_about = view.findViewById(R.id.about_button);
         button_call = view.findViewById(R.id.contact_button);
+        web_button = view.findViewById(R.id.web_button);
 
         button_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String link = "https://drive.google.com/file/d/1UJynv38jUn5yqety0OC0dQvr3X8vwUa1/view?usp=drive_link";
+                String link = "The link";
+//                copyToClipboard(link);
+                shareTextToApps(link);
+//                Toast.makeText(getContext(),"تم نسخ رابط المشاركة",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        web_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String link = "The link";
 //                copyToClipboard(link);
                 shareTextToApps(link);
 //                Toast.makeText(getContext(),"تم نسخ رابط المشاركة",Toast.LENGTH_SHORT).show();
@@ -45,36 +56,40 @@ public class setting_fragment extends Fragment {
         button_about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity2.class);
-                startActivity(intent);
+                if (!networkChangeReceiver.isNetworkAvailable(getContext()))
+                {
+                    Toast.makeText(getContext(), "لا يوجد انترنت", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Intent intent = new Intent(getActivity(), about_activity.class);
+                    startActivity(intent);
+                }
             }
         });
+
 
 
 
         button_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity2.class);
-                intent.putExtra("url","https://forms.gle/CR6DF9q27ZefKJQb9");
-                startActivity(intent);
+                if (!networkChangeReceiver.isNetworkAvailable(getContext()))
+                {
+                    Toast.makeText(getContext(), "لا يوجد انترنت", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    {
+                        Intent intent = new Intent(getActivity(), MainActivity2.class);
+                        intent.putExtra("url", "https://forms.gle/CR6DF9q27ZefKJQb9");
+                        startActivity(intent);
+                    }
             }
         });
         return view;
     }
 
-    private void copyToClipboard(String text) {
-        // Get the Clipboard Manager
-        ClipboardManager clipboard = (ClipboardManager)requireContext().getSystemService(Context.CLIPBOARD_SERVICE);
 
-        // Create a ClipData object with the text
-        ClipData clip = ClipData.newPlainText("label", text);
-
-        // Set the ClipData to the Clipboard
-        clipboard.setPrimaryClip(clip);
-
-        // Notify the user
-    }
 
     //_____________________________________________________________________________________________________________
     private void shareTextToApps(String text) {
@@ -83,7 +98,7 @@ public class setting_fragment extends Fragment {
         intent.putExtra(Intent.EXTRA_TEXT, text);
 
         // Create a chooser to let the user select the app to share with
-        Intent chooser = Intent.createChooser(intent, "Share text via");
+        Intent chooser = Intent.createChooser(intent, "شارك التطبيق مع ");
 
         try {
             startActivity(chooser);

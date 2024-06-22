@@ -29,7 +29,7 @@
                 android:layout_marginEnd="8dp"
                 android:text=" امراض المخ و الاعصاب "
                 android:textColor="@color/blue1"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 app:layout_constraintEnd_toStartOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -97,7 +97,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="سعر الكشف "
                 android:textColor="@color/blue2"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TV_doctor_title" />
@@ -110,7 +110,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="طنطا : عثمان محمد امام مصر والسودان"
                 android:textColor="@color/blue1"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 app:layout_constraintEnd_toStartOf="@+id/imageView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -147,6 +147,7 @@
                 android:background="@drawable/button_back"
                 android:padding="15dp"
                 android:text="احجز الان"
+                android:onClick="onClic"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -182,7 +183,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="150"
                 android:textColor="@color/blue1"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewp" />
@@ -191,7 +192,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:text="جنيه "
                 android:textColor="@color/blue1"

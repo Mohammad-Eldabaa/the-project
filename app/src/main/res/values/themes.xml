@@ -4,7 +4,7 @@
         <item name="colorPrimary">@color/blue1</item>
         <item name="colorPrimaryVariant">@color/blue2</item>
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="android:statusBarColor">#90CCFC</item>
     </style>
 
     <style name="Theme.ShifaaApp" parent="Base.Theme.ShifaaApp" />

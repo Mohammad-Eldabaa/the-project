@@ -1,5 +1,7 @@
 package com.example.shifaaapp;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +19,15 @@ public class MainActivity extends AppCompatActivity  {
 
 
     private ViewPager2 viewPager;
+    private NetworkChangeReceiver networkChangeReceiver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        networkChangeReceiver = new NetworkChangeReceiver(this);
 
         MeowBottomNavigation bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.show(2, true);
@@ -74,6 +79,9 @@ public class MainActivity extends AppCompatActivity  {
 
 //        animate();
 
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver, filter);
+
     }
 
 
@@ -83,5 +91,10 @@ public class MainActivity extends AppCompatActivity  {
 
 
     //------------------------------------------------------------------------------------------------
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Unregister the network change receiver
+        unregisterReceiver(networkChangeReceiver);
+    }
 }

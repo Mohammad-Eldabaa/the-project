@@ -28,10 +28,13 @@ public class parcher_fragment extends Fragment {
     Button button;
     String names = "";
     static ArrayAdapter<String> adapter;
+    NetworkChangeReceiver networkChangeReceiver;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_parcher_fragment, container, false);
+
+        networkChangeReceiver = new NetworkChangeReceiver(getContext());
 
 
         listView = view.findViewById(R.id.lisView_bought);
@@ -58,22 +61,27 @@ public class parcher_fragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (medical_show.str != null  &&  medical_show.str.size() != 0)
+                if (!networkChangeReceiver.isNetworkAvailable(getContext()))
                 {
-                    names = "";
-                    Iterator<String> iterator = medical_show.str.iterator();
-                    while (iterator.hasNext()) {
-                        String m = iterator.next();
-                        names += m + "\n";
-                    }
-                    Intent intent = new Intent(getActivity(), MainActivity2.class);
-                    intent.putExtra("url", "https://forms.gle/EmHvEcr48o397PAr9");
-                    startActivity(intent);
-                    copyToClipboard(names);
+                    Toast.makeText(getContext(), "لا يوجد انترنت", Toast.LENGTH_SHORT).show();
                 }
                 else
-                    Toast.makeText(getContext(), "قم باضافة بعض الأدوية أولا", Toast.LENGTH_SHORT).show();
+                {
+                    if (medical_show.str != null && medical_show.str.size() != 0) {
+                        names = "";
+                        Iterator<String> iterator = medical_show.str.iterator();
+                        while (iterator.hasNext()) {
+                            String m = iterator.next();
+                            names += m + "\n";
+                        }
+                        Intent intent = new Intent(getActivity(), MainActivity2.class);
+                        intent.putExtra("url", "https://forms.gle/EmHvEcr48o397PAr9");
+                        startActivity(intent);
+                        copyToClipboard(names);
+                    } else
+                        Toast.makeText(getContext(), "قم باضافة بعض الأدوية أولا", Toast.LENGTH_SHORT).show();
 
+                }
             }
         });
 

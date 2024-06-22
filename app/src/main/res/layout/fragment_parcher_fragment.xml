@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:background="#EFF6F8"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".parcher_fragment">
 
     <!-- TODO: Update blank fragment layout -->

@@ -1,9 +1,13 @@
 package com.example.shifaaapp;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,13 +24,16 @@ public class docto_show_activity extends AppCompatActivity {
     String part;
     int price;
     int star;
+    String data = "";
+    NetworkChangeReceiver networkChangeReceiver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_docto_show);
 
-
+        networkChangeReceiver = new NetworkChangeReceiver(this);
 
 
 
@@ -47,8 +54,7 @@ public class docto_show_activity extends AppCompatActivity {
                 star = intent.getIntExtra("price",0) ;
 
 
-        Log.i("999999999999999999", String.valueOf(name));
-
+        data = name + " \n" + part;
 
 
         TV_price.setText(String.valueOf(price));
@@ -59,7 +65,20 @@ public class docto_show_activity extends AppCompatActivity {
 
     }
 
-
+    public void onClic(View view)
+    {
+        if (!networkChangeReceiver.isNetworkAvailable(this))
+        {
+            Toast.makeText(this, "لا يوجد انترنت", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent intent = new Intent(docto_show_activity.this, MainActivity2.class);
+            copyToClipboard(data);
+            intent.putExtra("url", "https://forms.gle/fbMCEnj5qYNcfvXG7");
+            startActivity(intent);
+            Toast.makeText(this, "تم نسخ بيانات الطبيب", Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
 
@@ -81,4 +100,17 @@ public class docto_show_activity extends AppCompatActivity {
 //        TV_about.setText(about);
 //        TV_part.setText(part);
 //    }
+
+    private void copyToClipboard(String text) {
+        // Get the Clipboard Manager
+        ClipboardManager clipboard = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+
+        // Create a ClipData object with the text
+        ClipData clip = ClipData.newPlainText("label", text);
+
+        // Set the ClipData to the Clipboard
+        clipboard.setPrimaryClip(clip);
+
+        // Notify the user
+    }
 }

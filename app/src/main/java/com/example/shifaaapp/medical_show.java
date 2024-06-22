@@ -135,4 +135,6 @@ public class medical_show extends AppCompatActivity {
 
         parcher_fragment.parch();
     }
+
+
 }

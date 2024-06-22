@@ -101,9 +101,6 @@ public class homeFragment extends Fragment {
         con4.setAlpha(0);
         con4.animate().scaleX(1).scaleY(1).rotation(360).alpha(1).setDuration(1000).start();
 
-        imageView.setAlpha(0);
-        imageView.setScaleX(0);
-        imageView.setScaleY(0);
-        imageView.animate().scaleX(1).scaleY(1).alpha(1).setDuration(1500).start();
+
     }
 }
