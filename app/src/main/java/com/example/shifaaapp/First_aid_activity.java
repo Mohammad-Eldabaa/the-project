@@ -3,6 +3,7 @@ package com.example.shifaaapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class First_aid_activity extends AppCompatActivity {
@@ -26,6 +29,7 @@ public class First_aid_activity extends AppCompatActivity {
     private Button btnSpeak;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,7 @@ public class First_aid_activity extends AppCompatActivity {
         create();
         search();
         speek();
+//        ai_code();
     }
 
 
@@ -189,11 +194,121 @@ public class First_aid_activity extends AppCompatActivity {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    searchView.setQuery(result.get(0), false);
+
+                    searchView.setQuery(ai_code(result.get(0)), false);
                 }
                 break;
             }
         }
+    }
+
+    //_______________________________________________________________________________________
+
+    public String ai_code(String targetSentence) {
+        List<String> sentences = Arrays.asList(
+                "حالات الشرقان او الغصة",
+                "حالات",
+                "حال",
+                "شرقان",
+                "شرق",
+                "غصة",
+                "نزيف",
+                "كسور",
+                "صناعي",
+                "تنفس",
+                "انعاش",
+                "قلب",
+                "رئتين",
+                "صدمة",
+                "اختناق",
+                "بلع",
+                "لسان",
+                "شنق",
+                "خنق",
+                "غرق",
+                "اغماء",
+                "سكر",
+                "كبد",
+                "سكتة",
+                "دماغي",
+                "دماغ",
+                "تشخيص",
+                "وفاة",
+                "حروق",
+                "حر",
+                "شمس",
+                "ضرب",
+                "حمي",
+                "سخوني",
+                "ثعبان",
+                "عض",
+                "ثعبان",
+                "دخول",
+                "جسم",
+                "غريب",
+                "عين",
+                "صدم",
+                "خروج",
+                "سائل",
+                "اذن",
+                "سن",
+                "كسر",
+                "ضرس",
+                "انف",
+                "نزيف",
+                "كدمات",
+                "جروح",
+                "ازم",
+                "ربو",
+                "تواء",
+                "مفاصل",
+                "نوبات",
+                "صرع",
+                "تشنجات",
+                "حيوانات",
+                "لسع",
+                "نحل",
+                "قنديل",
+                "بحر",
+                "عقرب",
+                "لدغ",
+                "حالات النزيف",
+                "حالات الكسور",
+                "التنفس الصناعي",
+                "انعاش القلب والرئتين",
+                "حالة الصدمة",
+                "حالة الاختناق",
+                "حالة بلع اللسان",
+                "حالات الشنق او الخنق",
+                "حالة الغرق",
+                "حالة الاغماء",
+                "اغماء مرضي السكر",
+                "اغماء مرضي الكبد",
+                "السكتة الدماغية",
+                "تشخيص حالة الوفاة",
+                "حالات الحروق",
+                "ضربة الشمس",
+                "حالات الحمي او السخونية",
+                "عضة الثعبان",
+                "دخول جسم غريب للعين",
+                "خروج سائل من الاذن",
+                "كسر سن او ضرس",
+                "حالات نزيف الانف",
+                "الكدمات والجروح",
+                "ازمة الربو",
+                "التواء المفاصل",
+                "نوبات الصرع او التشنجات",
+                "عضة الحيوانات",
+                "لسعة النحلة",
+                "لسعة قنديل البحر",
+                "لدغة العقرب"
+                );
+
+
+        String mostSimilar = SimilarityFinder2.findMostSimilarSentence(targetSentence, sentences);
+        Log.i("hhhhhhhhhhhhhhhh","Most similar sentence: " + mostSimilar);
+
+        return mostSimilar;
     }
 
 }
