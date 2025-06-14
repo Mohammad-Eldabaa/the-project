@@ -45,6 +45,8 @@ dependencies {
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
     implementation 'com.etebarian:meow-bottom-navigation:1.2.0'
+    implementation 'org.apache.commons:commons-text:1.9'
+
 
 
 }

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class medical_acitivty extends AppCompatActivity {
@@ -169,12 +170,28 @@ public class medical_acitivty extends AppCompatActivity {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    searchView.setQuery(result.get(0), false);
+                    searchView.setQuery(ai_code(result.get(0)), false);
                 }
                 break;
             }
         }
     }
+
+    //___________________________________________________________________________________________________
+
+
+    public String ai_code(String targetSentence) {
+        List<String> sentences = a;
+
+
+        String mostSimilar = SimilarityFinder2.findMostSimilarSentence(targetSentence, sentences);
+        Log.i("hhhhhhhhhhhhhhhh","Most similar sentence: " + mostSimilar);
+
+        return mostSimilar;
+    }
+
+
+
 }
 
 
